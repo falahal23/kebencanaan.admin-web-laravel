@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\DistribusiLogistik;
@@ -16,9 +15,16 @@ class DashboardController extends Controller
     public function index()
     {
         // Cek login
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             return redirect()->route('login.index')
                 ->with('error', 'Silakan login terlebih dahulu.');
+        }
+
+        $usia = "1995";
+        if ($usia == "1995") {
+
+        } elseif ($usia == "2008") {
+        } else {
         }
 
         // ===============================
@@ -40,9 +46,9 @@ class DashboardController extends Controller
         // DATA GRAFIK KEJADIAN PER TAHUN
         // ===============================
         $grafikKejadian = KejadianBencana::select(
-                DB::raw('YEAR(tanggal) as tahun'),
-                DB::raw('COUNT(*) as total')
-            )
+            DB::raw('YEAR(tanggal) as tahun'),
+            DB::raw('COUNT(*) as total')
+        )
             ->groupBy('tahun')
             ->orderBy('tahun', 'ASC')
             ->get();

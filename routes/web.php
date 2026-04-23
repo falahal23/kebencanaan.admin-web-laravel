@@ -122,5 +122,17 @@ Route::get('/profile', function () {
 })->name('profile');
 
 
-Route::get('/admin/user/{id}', [UserController::class, 'show'])
-    ->name('user.show');
+// Route::get('/admin/user/{id}', [UserController::class, 'show'])
+//     ->name('user.show');
+
+// Route::get($usia, [LoginController::class, 'index'])->name('login.index');
+// if ($usia == ">17") {
+//     echo "Usia lebih dari 17 tahun";
+// } elseif ($usia == "<17") {
+//     echo "Usia kurang dari 17 tahun";
+// } else {
+//     echo "Saya tidak punya teman";
+// }
+
+Route::get("/2008 || /1995", [DashboardController::class, 'index'])->name('admin.dashboard');
+        return view('pages.admin.dashboard');

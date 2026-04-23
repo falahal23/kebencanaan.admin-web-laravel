@@ -36,6 +36,7 @@ class LoginController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
+
         if ($user && Hash::check($request->password, $user->password)) {
             session([
                 'user_id'    => $user->id,
@@ -51,6 +52,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors(['password' => 'Email atau password salah'])->withInput();
+
     }
 
     // 🔹 Halaman register
